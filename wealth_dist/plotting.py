@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import linregress
 
 # ============================================================
 #  Histogram + Entropy
@@ -89,7 +88,7 @@ def gibbs_plot(wealth, m=100, pct=None, bins=None, ax=None, DY=False):
         plt.show()
 
 # ============================================================
-#  CCDF + Regression (For Power Law Tails)
+#  CCDF (For Power Law Tails)
 # ============================================================
 
 def prepare_ccdf(wealth, pct = None):
@@ -103,26 +102,7 @@ def prepare_ccdf(wealth, pct = None):
     mask = (x >= cutoff) & (ccdf > 0)
     return x[mask], ccdf[mask]
 
-def regression(x, ccdf, loglog = True):
-
-    if loglog:
-        x_reg = np.log(x)
-
-    else:
-        x_reg = x
-
-    y_reg = np.log(ccdf)
-    fit = linregress(x_reg, y_reg)
-
-    m = fit.slope
-    c = fit.intercept
-    r2 = fit.rvalue**2
-
-    y_fit = np.exp(m * x_reg + c)
-
-    return x, y_fit, r2
-
-def plot_ccdf(wealth, pct = None, reg = False, ylog = True, xlog = True, ax=None):
+def plot_ccdf(wealth, pct = None, ylog = True, xlog = True, ax=None):
 
     """
     Plots the CCDF of Wealth on a log log or log scale
@@ -131,7 +111,6 @@ def plot_ccdf(wealth, pct = None, reg = False, ylog = True, xlog = True, ax=None
     ----------
     wealth: array of wealth values
     pct (None): the percentile for which the ccdf starts, eg. 95 means the top 5% are plotted
-    reg (False): plots a linear regression fit to the data on the appropriate scale
     ylog (True): plot the y-axis on a log scale
     xlog (True): plot the x-axis on a log scale
     ax (None): used for further functions
@@ -159,23 +138,11 @@ def plot_ccdf(wealth, pct = None, reg = False, ylog = True, xlog = True, ax=None
     if xlog:
         ax.set_xscale('log')
 
-    if xlog and ylog:
-        loglog = True
+    if pct is not None:
+        ax.set_title(f"CCDF of the Top {100 - pct}%")
     else:
-        loglog = False
+        ax.set_title("CCDF of the Population")
 
-    if reg:
-        x, y_fit, r2 = regression(x, ccdf, loglog = loglog)
-        ax.plot(x, y_fit, label = f"R²={r2:.3f}")
-        ax.legend()
-        display_pct = 0 if pct is None else pct
-        ax.set_title(f"CCDF of the Top {100 - display_pct}%")
-    else:
-        if pct is not None:
-            ax.set_title(f"CCDF of the Top {100 - pct}%")
-        else:
-            ax.set_title("CCDF of the Population")
-            
     if show:
         plt.tight_layout()
         plt.show()

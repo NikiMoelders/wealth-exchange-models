@@ -4,7 +4,11 @@ from scipy import stats
 
 def pareto_tail_fit(wealth, pct):
     """
-    Fits a Pareto distribution to the upper tail of a wealth distribution.
+    Fits a Pareto distribution to the upper tail of a wealth distribution by maximum likelihood.
+
+    With the location fixed at 0, the maximum-likelihood scale is the smallest tail value (xmin),
+    and the shape estimate is the Hill estimator, alpha = n / sum(log(w / xmin)). This is preferred
+    to a least-squares line on the log-log CCDF, which gives biased exponents.
 
     Parameters
     ----------
