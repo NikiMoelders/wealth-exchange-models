@@ -1,6 +1,6 @@
 # Wealth Exchange Models
 
-Preliminary code and analysis from my summer research internship in financial mathematics at University College Dublin, joint work with Dr. Andrea Monaco and Dr. Adamaria Perrotta.
+Preliminary code and analysis from my summer research internship in financial mathematics at University College Dublin, which was joint work with Dr. Andrea Monaco and Dr. Adamaria Perrotta.
 
 The project asks which wealth exchange mechanisms take the stationary wealth distribution from the exponential (Boltzmann–Gibbs) form of kinetic exchange models to a Pareto tail. It led to the preprint:
 
@@ -10,7 +10,7 @@ This repository contains the exploratory simulations that came before the paper.
 
 ## Notebooks
 
-The notebooks are grouped by model family and numbered in reading order. Notebooks 01 and 02 reproduce existing models from the literature; 03 to 06 are the mechanisms explored in this project. I would recommend following this order.
+The notebooks are grouped by model family and numbered in (the recommended) reading order. Notebooks 01 and 02 reproduce existing models from the literature, while 03 to 06 are some of the mechanisms explored in this project.
 
 ```text
 notebooks/
