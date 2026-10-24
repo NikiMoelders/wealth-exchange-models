@@ -1,12 +1,15 @@
 # Wealth Exchange Models
 
-Preliminary code and analysis from my summer research internship in financial mathematics at University College Dublin, joint work with Dr. Andrea Monaco and Dr. Adamaria Perrotta.
+Preliminary code and analysis from my summer research internship in financial mathematics at University College Dublin, which was joint work with Dr. Andrea Monaco and Dr. Adamaria Perrotta.
 
 The project asks which wealth exchange mechanisms take the stationary wealth distribution from the exponential (Boltzmann–Gibbs) form of kinetic exchange models to a Pareto tail. It led to the preprint:
 
 > Monaco, A., Perrotta, A. & Moelders, N. (2026). *Scale Homogeneity and Pareto Tails in Wealth Accumulation*. [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7640561)
 
-This repository contains the exploratory simulations that came before the paper. The numerical results in the paper were produced separately; that code is available on request (nmoelders@ethz.ch). I am also open to comments and suggestions!
+> [!IMPORTANT]
+> This repository contains **exploratory code developed during the summer**, before the paper. It is **not** the code used to generate the numerical results or figures in the preprint, and it will not reproduce them. The code behind the paper's results is available on request (nmoelders@ethz.ch).
+
+Comments and suggestions are welcome.
 
 ## Notebooks
 
