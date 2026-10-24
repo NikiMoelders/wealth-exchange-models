@@ -13,7 +13,7 @@ Comments and suggestions are welcome.
 
 ## Notebooks
 
-The notebooks are grouped by model family and numbered in reading order. Notebooks 01 and 02 reproduce existing models from the literature; 03 to 06 are the mechanisms explored in this project. I would recommend following this order.
+The notebooks are grouped by model family and numbered in (the recommended) reading order. Notebooks 01 and 02 reproduce existing models from the literature, while 03 to 06 are some of the mechanisms explored in this project.
 
 ```text
 notebooks/
